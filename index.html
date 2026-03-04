@@ -3,63 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bertschinger Clinic Of Chiropractic - Professional Chiropractic Care in Martinsburg, WV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Bertschinger Clinic Of Chiropractic | Premium Care in Martinsburg</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #2d433d; /* Deep Slate Green */
+            --accent: #6b8e83;  /* Muted Sage */
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --text: #333333;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fafafa;
+            color: var(--text);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Header */
+        /* Modern Glassmorphic Header */
         .header {
-            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            padding: 25px 0;
+            background: transparent;
         }
 
         .header-content {
@@ -69,409 +41,178 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--primary);
+            letter-spacing: 0.5px;
         }
 
         .header-phone {
-            color: white;
+            background: rgba(45, 67, 61, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            border: 1px solid rgba(45, 67, 61, 0.2);
+            transition: all 0.3s;
         }
 
-        .header-phone:hover {
-            color: #b8e6c1;
-        }
-
-        /* Hero Section */
+        /* Captivating Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
-            padding: 80px 0;
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.4)), 
+                        url('https://images.unsplash.com/photo-1579152276503-68fe286c13f0?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
         }
+
+        .hero-content { max-width: 800px; animation: fadeInUp 1s ease-out; }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            color: #2c5530;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5vw, 64px);
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 25px;
         }
 
-        .hero .tagline {
-            font-size: 22px;
-            color: #5a7c65;
-            margin-bottom: 40px;
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 35px;
             font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            background: var(--primary);
             color: white;
-            padding: 18px 40px;
+            padding: 20px 45px;
+            border-radius: 5px; /* Squared edges look more professional/medical */
             text-decoration: none;
-            border-radius: 50px;
             font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(44, 85, 48, 0.3);
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(45, 67, 61, 0.2);
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(44, 85, 48, 0.4);
-            background: linear-gradient(135deg, #1e3a21 0%, #3d6b4a 100%);
+            background: var(--accent);
+            transform: translateY(-3px);
         }
 
-        /* Section Styles */
-        .section {
-            padding: 80px 0;
-        }
-
+        /* Professional Service Cards */
+        .section { padding: 100px 0; }
         .section-title {
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c5530;
+            font-size: 38px;
             margin-bottom: 60px;
-            letter-spacing: -0.5px;
-        }
-
-        /* Services Section */
-        .services {
-            background: white;
+            color: var(--primary);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .service-item {
-            background: #f8fffe;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e8f5e8;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 2px;
+            border-bottom: 3px solid transparent;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
 
         .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(44, 85, 48, 0.1);
+            border-bottom: 3px solid var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
         .service-item h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #2c5530;
+            font-family: 'Playfair Display', serif;
             margin-bottom: 15px;
+            color: var(--primary);
         }
 
-        .service-item p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose {
-            background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
+        /* Ratings / Social Proof */
+        .rating-box {
+            background: var(--primary);
             color: white;
-        }
-
-        .feature-item h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: #2c5530;
-            margin-bottom: 15px;
-        }
-
-        .feature-item p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Rating Section */
-        .rating {
-            background: white;
+            padding: 60px 0;
             text-align: center;
         }
 
-        .stars {
-            font-size: 32px;
-            color: #ffc107;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+        .stars { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .rating-text {
-            font-size: 20px;
-            color: #333;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .review-count {
-            font-size: 16px;
-            color: #666;
-        }
-
-        /* Hours Section */
-        .hours {
-            background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
-        }
-
-        .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hours-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .day {
-            font-weight: 600;
-            color: #2c5530;
-        }
-
-        .time {
-            color: #666;
-            text-align: right;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: #2c5530;
-            color: white;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact-info {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-item {
-            margin-bottom: 30px;
-        }
-
-        .contact-item h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .contact-item p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .contact-item a {
-            color: #b8e6c1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: white;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1e3a21;
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .footer p {
-            margin-bottom: 10px;
-        }
-
-        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero .tagline {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .services-grid,
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 16px;
-            }
-
-            .hours-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero { height: 70vh; }
+            .header-phone { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header fade-in">
+
+    <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">Bertschinger Clinic Of Chiropractic</div>
-                <a href="tel:(304) 263-6953" class="header-phone">(304) 263-6953</a>
+                <div class="logo">BERTSCHINGER CLINIC</div>
+                <a href="tel:(304) 263-6953" class="header-phone">CALL (304) 263-6953</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero fade-in-up">
-        <div class="container">
-            <h1>Expert Chiropractic Care in Martinsburg</h1>
-            <p class="tagline">Restoring your health, one adjustment at a time</p>
-            <a href="tel:(304) 263-6953" class="cta-button">Call Now for Appointment</a>
+    <section class="hero">
+        <div class="hero-content">
+            <p>Martinsburg's Trusted Chiropractor</p>
+            <h1>Restoring Mobility. <br>Enhancing Life.</h1>
+            <a href="tel:(304) 263-6953" class="cta-button">BOOK A CONSULTATION</a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services section fade-in-up">
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title">Specialized Care</h2>
             <div class="services-grid">
                 <div class="service-item">
-                    <h3>Back Pain Treatment</h3>
-                    <p>Comprehensive care for acute and chronic back pain using proven chiropractic techniques and personalized treatment plans.</p>
+                    <h3>Spinal Alignment</h3>
+                    <p>Precise adjustments designed to restore natural function and alleviate chronic pressure.</p>
                 </div>
                 <div class="service-item">
-                    <h3>Neck Pain Relief</h3>
-                    <p>Gentle, effective treatments to relieve neck stiffness, tension, and pain from various causes including poor posture and injuries.</p>
+                    <h3>Injury Recovery</h3>
+                    <p>Evidence-based rehabilitation for sports and lifestyle-related musculoskeletal injuries.</p>
                 </div>
                 <div class="service-item">
-                    <h3>Sports Injury Recovery</h3>
-                    <p>Specialized treatment for athletes and active individuals to recover from sports-related injuries and prevent future problems.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Headache Treatment</h3>
-                    <p>Natural, drug-free approach to treating tension headaches, migraines, and cervicogenic headaches at their source.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Sciatica Care</h3>
-                    <p>Targeted treatment to relieve sciatic nerve pain and restore normal function through gentle spinal adjustments.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Posture Correction</h3>
-                    <p>Comprehensive approach to improving posture through spinal alignment, exercises, and lifestyle modifications.</p>
+                    <h3>Posture Clinic</h3>
+                    <p>Corrective strategies for modern lifestyle issues, including "tech-neck" and sedentary strain.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose section fade-in-up">
-        <div class="container">
-            <h2 class="section-title">Why Choose Bertschinger Clinic</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">👨‍⚕️</div>
-                    <h3>Experienced Care</h3>
-                    <p>Years of professional experience in chiropractic care with a deep understanding of musculoskeletal conditions and their treatment.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💡</div>
-                    <h3>Personalized Treatment</h3>
-                    <p>Every patient receives a customized treatment plan tailored to their specific condition, lifestyle, and recovery goals.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h3>Proven Results</h3>
-                    <p>Our track record of successful treatments and satisfied patients speaks to our commitment to delivering effective, lasting results.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rating Section -->
-    <section class="rating section fade-in-up">
+    <section class="rating-box">
         <div class="container">
             <div class="stars">★★★★★</div>
-            <div class="rating-text">5.0 out of 5 stars</div>
-            <div class="review-count">Based on 21 Google reviews</div>
+            <h3>"Patient-First Excellence"</h3>
+            <p style="margin-top:10px; opacity: 0.8;">Based on 21 Verified Google Reviews</p>
         </div>
     </section>
 
-    <!-- Hours Section -->
-    <section class="hours section fade-in-up">
-        <div class="container">
-            <h2 class="section-title">Hours of Operation</h2>
-            <div class="hours-grid">
-                <div class="hours-item">
-                    <span class="day">Monday</span>
-                    <span class="time">8:00 AM – 12:00 PM<br>1:30 – 5:00 PM</span>
-                </div>
-                <div class="hours-item">
-                    <span class="day">Tuesday</span>
-                    <span class="time">1:00 – 7:00 PM</span>
-                </div>
-                <div class="hours-item">
-                    <span class="day">Wednesday</span>
-                    <span class="time">8:00 AM – 12:00 PM<br>1:30 – 5:00 PM</span>
-                </div>
-                <div class="hours-item">
-                    
+</body>
+</html>
