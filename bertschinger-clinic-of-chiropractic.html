@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -371,7 +371,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header --
     <header class="header fade-in">
         <div class="container">
             <div class="header-content">
@@ -381,7 +381,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section --
     <section class="hero fade-in-up">
         <div class="container">
             <h1>Expert Chiropractic Care in Martinsburg</h1>
@@ -390,7 +390,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section --
     <section class="services section fade-in-up">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
@@ -423,7 +423,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
+    <!-- Why Choose Us Section --
     <section class="why-choose section fade-in-up">
         <div class="container">
             <h2 class="section-title">Why Choose Bertschinger Clinic</h2>
@@ -447,7 +447,7 @@
         </div>
     </section>
 
-    <!-- Rating Section -->
+    <!-- Rating Section --
     <section class="rating section fade-in-up">
         <div class="container">
             <div class="stars">★★★★★</div>
@@ -456,7 +456,7 @@
         </div>
     </section>
 
-    <!-- Hours Section -->
+    <!-- Hours Section --
     <section class="hours section fade-in-up">
         <div class="container">
             <h2 class="section-title">Hours of Operation</h2>
@@ -474,4 +474,224 @@
                     <span class="time">8:00 AM – 12:00 PM<br>1:30 – 5:00 PM</span>
                 </div>
                 <div class="hours-item">
-                    
+                     -->
+
+
+                     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bertschinger Clinic Of Chiropractic | Premium Care in Martinsburg</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d433d; /* Deep Slate Green */
+            --accent: #6b8e83;  /* Muted Sage */
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --text: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
+        /* Modern Glassmorphic Header */
+        .header {
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            padding: 25px 0;
+            background: transparent;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .header-phone {
+            background: rgba(45, 67, 61, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(45, 67, 61, 0.2);
+            transition: all 0.3s;
+        }
+
+        /* Captivating Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.4)), 
+                        url('https://images.unsplash.com/photo-1579152276503-68fe286c13f0?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content { max-width: 800px; animation: fadeInUp 1s ease-out; }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5vw, 64px);
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 35px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 20px 45px;
+            border-radius: 5px; /* Squared edges look more professional/medical */
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(45, 67, 61, 0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Professional Service Cards */
+        .section { padding: 100px 0; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 60px;
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 2px;
+            border-bottom: 3px solid transparent;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .service-item:hover {
+            border-bottom: 3px solid var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-item h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Ratings / Social Proof */
+        .rating-box {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stars { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { height: 70vh; }
+            .header-phone { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">BERTSCHINGER CLINIC</div>
+                <a href="tel:(304) 263-6953" class="header-phone">CALL (304) 263-6953</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p>Martinsburg's Trusted Chiropractor</p>
+            <h1>Restoring Mobility. <br>Enhancing Life.</h1>
+            <a href="tel:(304) 263-6953" class="cta-button">BOOK A CONSULTATION</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Specialized Care</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Spinal Alignment</h3>
+                    <p>Precise adjustments designed to restore natural function and alleviate chronic pressure.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Injury Recovery</h3>
+                    <p>Evidence-based rehabilitation for sports and lifestyle-related musculoskeletal injuries.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Posture Clinic</h3>
+                    <p>Corrective strategies for modern lifestyle issues, including "tech-neck" and sedentary strain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rating-box">
+        <div class="container">
+            <div class="stars">★★★★★</div>
+            <h3>"Patient-First Excellence"</h3>
+            <p style="margin-top:10px; opacity: 0.8;">Based on 21 Verified Google Reviews</p>
+        </div>
+    </section>
+
+</body>
+</html>
