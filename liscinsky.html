@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liscinsky Services — Plumbing · Olney, MD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2a;
+      --slate: #1c2f45;
+      --steel: #2c4a6e;
+      --ice: #d4e4f4;
+      --gold: #c8922a;
+      --gold-light: #e0aa42;
+      --white: #f8f5f0;
+      --gray: #8a9bb0;
+      --text: #1a2535;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(13, 27, 42, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(200,146,42,0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.05rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ice);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      padding: 0.55rem 1.4rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(44,74,110,0.5) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,146,42,0.08) 0%, transparent 60%);
+    }
+
+    /* Pipe illustration */
+    .hero-pipes {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 50%;
+      opacity: 0.07;
+      overflow: hidden;
+    }
+    .hero-pipes svg { width: 100%; height: 100%; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 8rem 4rem 6rem 6rem;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(200,146,42,0.35);
+      padding: 0.4rem 1rem;
+      margin-bottom: 2rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1.6rem;
+      font-weight: 700;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--ice);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.9rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(200,146,42,0.4);
+      color: var(--ice);
+      padding: 0.9rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      padding: 8rem 6rem 6rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .stat-card {
+      background: rgba(28,47,69,0.6);
+      border: 1px solid rgba(200,146,42,0.15);
+      padding: 1.6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+    .stat-num {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.4rem;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 0; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-sub {
+      color: #5a6e83;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: #d0d8e0;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2.4rem 2rem;
+      transition: all 0.25s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .service-card:hover { background: var(--navy); }
+    .service-card:hover .service-name { color: var(--white); }
+    .service-card:hover .service-desc { color: var(--gray); }
+    .service-card:hover .service-icon { color: var(--gold); }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: var(--gold);
+      transition: color 0.25s;
+    }
+    .service-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+      transition: color 0.25s;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: #6b7f95;
+      line-height: 1.65;
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+
+    /* ── WHY US ── */
+    .why { background: var(--navy); }
+    .why .section-title { color: var(--white); }
+    .why .section-sub { color: var(--gray); }
+    .why .section-label { }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .why-list { display: flex; flex-direction: column; gap: 1.8rem; }
+
+    .why-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .why-num {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
+      color: rgba(200,146,42,0.35);
+      font-weight: 700;
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+    .why-text h3 {
+      font-size: 0.95rem;
+      color: var(--ice);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .why-text p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .why-visual {
+      background: var(--slate);
+      border: 1px solid rgba(200,146,42,0.12);
+      padding: 3rem;
+      position: relative;
+    }
+    .why-visual::before {
+      content: '"';
+      font-family: 'Libre Baskerville', serif;
+      font-size: 8rem;
+      color: rgba(200,146,42,0.08);
+      position: absolute;
+      top: -1rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .review-text {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      color: var(--ice);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .review-author {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── HOURS / CONTACT ── */
+    .contact { background: #f0ebe3; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .hours-list { margin-top: 2rem; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      font-size: 0.88rem;
+    }
+    .hours-day { color: #5a6e83; font-weight: 300; }
+    .hours-time {
+      color: var(--navy);
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .hours-time.open {
+      color: #2a7c4e;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .contact-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 1rem;
+      height: 1rem;
+      fill: var(--gold);
+    }
+    .contact-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+    .contact-value {
+      font-size: 0.92rem;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .contact-value a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-value a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(200,146,42,0.2);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Libre Baskerville', serif;
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 0.04em;
+    }
+    .footer-phone {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .footer-phone:hover { color: var(--gold-light); }
+
+    /* ── BANNER ── */
+    .banner {
+      background: var(--gold);
+      padding: 0.8rem 2rem;
+      text-align: center;
+    }
+    .banner a {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .banner a strong { margin: 0 0.5rem; font-size: 1rem; letter-spacing: 0; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-content { padding: 7rem 2rem 3rem; }
+      .hero-right { padding: 0 2rem 5rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 580px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <a href="tel:3017746210">
+    Available 24/7 — Call Now <strong>(301) 774-6210</strong> · Emergency Plumbing in Olney, MD
+  </a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Liscinsky <span>Services</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:3017746210" class="nav-cta">Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Decorative pipe SVG background -->
+  <div class="hero-pipes">
+    <svg viewBox="0 0 500 800" xmlns="http://www.w3.org/2000/svg">
+      <rect x="60" y="0" width="30" height="800" rx="6" fill="white"/>
+      <rect x="0" y="180" width="200" height="30" rx="6" fill="white"/>
+      <circle cx="60" cy="180" r="22" fill="white"/>
+      <rect x="170" y="180" width="30" height="300" rx="6" fill="white"/>
+      <rect x="170" y="450" width="330" height="30" rx="6" fill="white"/>
+      <circle cx="170" cy="480" r="22" fill="white"/>
+      <rect x="280" y="100" width="30" height="380" rx="6" fill="white"/>
+      <rect x="280" y="100" width="180" height="30" rx="6" fill="white"/>
+      <circle cx="280" cy="480" r="18" fill="none" stroke="white" stroke-width="8"/>
+      <rect x="390" y="0" width="20" height="200" rx="5" fill="white"/>
+      <rect x="60" y="620" width="200" height="20" rx="5" fill="white"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Licensed & Insured · Olney, MD</div>
+    <h1>Reliable Plumbing,<br><em>Done Right.</em></h1>
+    <p class="hero-sub">
+      Serving Montgomery County and surrounding areas with dependable plumbing services — available every hour of every day.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:3017746210" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (301) 774-6210
+      </a>
+      <a href="#services" class="btn-secondary">
+        Our Services
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.4 1.4L16.2 11H4v2h12.2l-5.6 5.6L12 20l8-8z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Emergency Service Available</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4.2★</div>
+      <div class="stat-label">Google Rating · 5 Reviews</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">Olney</div>
+      <div class="stat-label">Based on Mt Olney Ln · MD 20832</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Plumbing Services<br>You Can Count On</h2>
+      </div>
+      <p class="section-sub">From emergency repairs to routine maintenance, Liscinsky Services handles every job with professionalism and care.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-icon">🔧</span>
+        <div class="service-name">Emergency Repairs</div>
+        <p class="service-desc">Burst pipes, sudden leaks, no water — we're available 24 hours a day, 7 days a week including holidays.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚿</span>
+        <div class="service-name">Fixture Installation</div>
+        <p class="service-desc">Faucets, sinks, toilets, showers, and bathtubs installed properly and backed by our workmanship.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌊</span>
+        <div class="service-name">Drain Cleaning</div>
+        <p class="service-desc">Slow or blocked drains cleared quickly using professional tools — no mess, no damage.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔥</span>
+        <div class="service-name">Water Heater Service</div>
+        <p class="service-desc">Installation, repair, and replacement of traditional and tankless water heaters of all makes.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <div class="service-name">Pipe Repair & Replacement</div>
+        <p class="service-desc">Aging, leaking, or corroded pipes diagnosed and replaced with durable, code-compliant materials.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✅</span>
+        <div class="service-name">Inspections & Maintenance</div>
+        <p class="service-desc">Proactive plumbing inspections for homeowners, landlords, and real estate transactions in Montgomery County.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title" style="color:var(--white)">Local Expertise.<br>Honest Work.</h2>
+      <p class="section-sub">Liscinsky Services has been serving the Olney, MD community with the kind of straightforward, reliable plumbing service that neighbors recommend to neighbors.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-list reveal">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div class="why-text">
+            <h3>Always Available</h3>
+            <p>Plumbing emergencies don't follow business hours. We're open 24 hours a day, 365 days a year — no after-hours upcharge runaround.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div class="why-text">
+            <h3>Local to Olney</h3>
+            <p>We live and work in Montgomery County. That means faster response times and a genuine stake in the community we serve.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div class="why-text">
+            <h3>Transparent Pricing</h3>
+            <p>No surprise invoices. We explain the work, quote the job, and stick to it — so you always know what you're paying for before we start.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div class="why-text">
+            <h3>Clean, Respectful Service</h3>
+            <p>We treat your home like our own — protective covers, clean workspaces, and thorough cleanup when the job is done.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          "Liscinsky was prompt, professional, and fixed our leak without any hassle. They didn't try to oversell anything — just did exactly what was needed. Would absolutely call them again."
+        </p>
+        <div class="review-author">— Verified Google Review · Olney, MD</div>
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(200,146,42,0.15);">
+          <div style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--gray); margin-bottom: 0.5rem;">Find Us On Google</div>
+          <a href="https://maps.google.com/?cid=14922920672672730404" target="_blank" style="font-size:0.85rem; color: var(--gold); font-weight:500; text-decoration:none;">View on Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & HOURS -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Reach Us</div>
+      <h2 class="section-title">Get in Touch</h2>
+    </div>
+
+    <div class="contact-grid" style="margin-top: 3rem;">
+      <div class="reveal">
+        <div class="contact-detail">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value"><a href="tel:3017746210">(301) 774-6210</a></div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5 14.5 7.6 14.5 9 13.4 11.5 12 11.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-value">
+              <a href="https://maps.google.com/?cid=14922920672672730404" target="_blank">
+                4029 Mt Olney Ln<br>Olney, MD 20832
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 17.9V18c0-.6-.4-1-1-1s-1 .4-1 1v1.9C7.1 19.5 4.5 16.9 4.1 14H6c.6 0 1-.4 1-1s-.4-1-1-1H4.1C4.5 8.1 7.1 5.5 10 5.1V7c0 .6.4 1 1 1s1-.4 1-1V5.1c2.9.4 5.5 3 5.9 5.9H16c-.6 0-1 .4-1 1s.4 1 1 1h1.9c-.4 2.9-3 5.5-5.9 5.9z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Availability</div>
+            <div class="contact-value">Open 24 Hours · 7 Days a Week<br><span style="color:#2a7c4e; font-weight:500;">Including Holidays</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div style="margin-bottom: 1rem;">
+          <div class="section-label">Hours of Operation</div>
+        </div>
+        <div class="hours-list">
+          <div class="hours-row">
+            <span class="hours-day">Monday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Tuesday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Wednesday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Thursday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Friday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+          <div class="hours-row" style="border:none;">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-time open">Open 24 Hours</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--navy); text-align: center;">
+          <div style="font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--gray); margin-bottom:0.6rem;">Plumbing Emergency?</div>
+          <a href="tel:3017746210" style="font-family:'Libre Baskerville',serif; font-size:1.4rem; color: var(--gold); text-decoration:none; font-weight:700;">(301) 774-6210</a>
+          <div style="font-size:0.75rem; color:var(--gray); margin-top:0.4rem;">We answer every call, day or night.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">Liscinsky <span>Services</span></div>
+    <div class="footer-copy">© 2025 Liscinsky Services · 4029 Mt Olney Ln, Olney, MD 20832</div>
+    <a href="tel:3017746210" class="footer-phone">(301) 774-6210</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
